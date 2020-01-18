@@ -1,15 +1,15 @@
-ï»¿spring:
+spring:
 	profiles:
 		active:
 			-dev	
 ---
 spring:
-	profiles:dev #å¼€å‘ç¯å¢ƒ
+	profiles:dev #¿ª·¢»·¾³
 	application:
 		name: micro-config-tian-dev
 ---
 spring:
-	profiles: test #æµ‹è¯•ç¯å¢ƒ
+	profiles: test #²âÊÔ»·¾³
 	application:
 		name: micro-config-tian-test
       
