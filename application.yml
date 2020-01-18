@@ -5,10 +5,10 @@ spring:
 ---
 spring:
   profiles: dev
-    application:
+    application: 
       name: micro-config-tian-dev
 ---
 spring:
   profiles: test
-    application:
+    application: 
       name: micro-config-tian-test
