@@ -5,11 +5,10 @@ spring:
 ---
 spring:
   profiles: dev #开发环境
-	application:
-		name: micro-config-tian-dev
+    application:
+      name: micro-config-tian-dev
 ---
 spring:
   profiles: test #测试环境
-	application:
-		name: micro-config-tian-test
-      
+    application:
+      name: micro-config-tian-test
