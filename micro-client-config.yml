@@ -1,0 +1,135 @@
+﻿---
+spring:
+  profiles: dev
+  application:
+    name: springCloud-provide-dev
+  freemarker:
+    cache: false
+    charset: utf-8
+    enabled: true
+  datasource:
+    druid: 
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      password: root
+      url: jdbc:mysql://127.0.0.1:3306/test?serverTimezone=UTC&useSSL=false&useAffectedRows=true
+      db-type: com.alibaba.druid.pool.DruidDataSource
+      initialSize: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+  redis:
+    host: 103.45.99.93
+    port: 6379
+    password: zchs2019
+    timeout: 10000
+    jedis:
+      pool:
+        max-idle: 10
+        min-idle: 0
+        max-active: 1000
+        max-wait: 10000
+server:
+  port: 8002
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  typeAliasesPackage: com.tian.cloud.entity
+logging:
+  config: classpath:logback-boot.xml
+  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7071.com:7071/eureka/
+      #defaultZone: http://eureka7073.com:7073/eureka/,http://eureka7072.com:7072/eureka/,http://eureka7071.com:7071/eureka/
+  instance:
+    instance-id: provide-role8002
+    prefer-ip-address: true
+
+
+info:
+  app.name: springCloud-provide
+  company.name: www.baidu.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+  
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+        
+---
+spring:
+  profiles: test
+  application:
+    name: springCloud-provide-test
+  freemarker:
+    cache: false
+    charset: utf-8
+    enabled: true
+  datasource:
+    druid: 
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      password: root
+      url: jdbc:mysql://127.0.0.1:3306/test?serverTimezone=UTC&useSSL=false&useAffectedRows=true
+      db-type: com.alibaba.druid.pool.DruidDataSource
+      initialSize: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+  redis:
+    host: 103.45.99.93
+    port: 6379
+    password: zchs2019
+    timeout: 10000
+    jedis:
+      pool:
+        max-idle: 10
+        min-idle: 0
+        max-active: 1000
+        max-wait: 10000
+server:
+  port: 8002
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  typeAliasesPackage: com.tian.cloud.entity
+logging:
+  config: classpath:logback-boot.xml
+  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7071.com:7071/eureka/
+      #defaultZone: http://eureka7073.com:7073/eureka/,http://eureka7072.com:7072/eureka/,http://eureka7071.com:7071/eureka/
+  instance:
+    instance-id: provide-role8002
+    prefer-ip-address: true
+
+
+info:
+  app.name: springCloud-provide
+  company.name: www.baidu.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+---
+spring:
+  profiles:
+    active: ${spring.profiles}
